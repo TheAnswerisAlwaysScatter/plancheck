@@ -1,0 +1,152 @@
+{
+  "_comment": "Oncology Plan QA expected values. Keys must match CheckName exactly as produced by the script.",
+
+  "imageChecks": {
+    "Prostate_VMAT": {
+      "Image Orientation": { "expected": "HFS",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "Scan Ref X":        { "expected": "-0.5",   "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Scan Ref Y":        { "expected": "0.0",    "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Scan Ref Z":        { "expected": "0.0",    "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Couch Index":       { "expected": "1",      "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "Couch Offset":      { "expected": "0.0",    "warn": 0.2,  "fail": 0.5,  "unit": "cm","type": "numeric" },
+      "DICOM Width":       { "expected": "512",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "DICOM Height":      { "expected": "512",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "DICOM Frames":      { "expected": "120",    "warn": 10,   "fail": 30,   "unit": "", "type": "numeric" }
+    },
+    "Prostate_SBRT": {
+      "Image Orientation": { "expected": "HFS",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "Scan Ref X":        { "expected": "-0.5",   "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Scan Ref Y":        { "expected": "0.0",    "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Scan Ref Z":        { "expected": "0.0",    "warn": 0.5,  "fail": 1.0,  "unit": "cm","type": "numeric" },
+      "Couch Index":       { "expected": "1",      "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "Couch Offset":      { "expected": "0.0",    "warn": 0.2,  "fail": 0.5,  "unit": "cm","type": "numeric" },
+      "DICOM Width":       { "expected": "512",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "DICOM Height":      { "expected": "512",    "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "DICOM Frames":      { "expected": "120",    "warn": 10,   "fail": 30,   "unit": "", "type": "numeric" }
+    }
+  },
+
+  "calcChecks": {
+    "Prostate_VMAT": {
+      "Grid Spacing":          { "expected": "0.3",  "warn": null, "fail": null, "unit": "cm", "type": "numeric" },
+      "Uncertainty Per Beam":  { "expected": "2.0",   "warn": 0.5,  "fail": 1.0,  "unit": "%",  "type": "numeric" },
+      "Uncertainty Per Spot":  { "expected": "1.0",   "warn": 0.5,  "fail": 1.0,  "unit": "%",  "type": "numeric" },
+      "Dose Deposition":       { "expected": "CC",    "warn": null, "fail": null, "unit": "",   "type": "string"  }
+    },
+    "Prostate_SBRT": {
+      "Grid Spacing":          { "expected": "0.2",   "warn": null, "fail": null, "unit": "cm", "type": "numeric" },
+      "Uncertainty Per Beam":  { "expected": "2.0",   "warn": 0.5,  "fail": 1.0,  "unit": "%",  "type": "numeric" },
+      "Uncertainty Per Spot":  { "expected": "1.0",   "warn": 0.5,  "fail": 1.0,  "unit": "%",  "type": "numeric" },
+      "Dose Deposition":       { "expected": "CC",    "warn": null, "fail": null, "unit": "",   "type": "string"  }
+    }
+  },
+
+  "rxChecks": {
+    "Prostate_VMAT": {
+      "Rx: A - Site":           { "expected": "Prostate",   "warn": null, "fail": null, "unit": "",   "type": "string"  },
+      "Rx: A - Dose":           { "expected": "6000",       "warn": 0.5,  "fail": 1.0,  "unit": "Gy", "type": "numeric" },
+      "Rx: A - Fractional Dose":{ "expected": "2.0",        "warn": 0.05, "fail": 0.1,  "unit": "Gy", "type": "numeric" },
+      "Rx: A - Fraction Number": { "expected": "20",        "warn": 0,    "fail": 1,    "unit": "",   "type": "numeric" },
+      "Rx: A - Prescribe To":   { "expected": "Isocenter",  "warn": null, "fail": null, "unit": "",   "type": "string"  },
+      "Rx: A - Weight By MU":   { "expected": "True",       "warn": null, "fail": null, "unit": "",   "type": "string"  }
+    },
+    "Prostate_SBRT": {
+      "Rx: A - Site":           { "expected": "Prostate",   "warn": null, "fail": null, "unit": "",   "type": "string"  },
+      "Rx: A - Dose":           { "expected": "36.25",      "warn": 0.5,  "fail": 1.0,  "unit": "Gy", "type": "numeric" },
+      "Rx: A - Fractional Dose":{ "expected": "7.25",       "warn": 0.05, "fail": 0.1,  "unit": "Gy", "type": "numeric" },
+      "Rx: A - Fraction Number": { "expected": "5",         "warn": 0,    "fail": 1,    "unit": "",   "type": "numeric" },
+      "Rx: A - Prescribe To":   { "expected": "Isocenter",  "warn": null, "fail": null, "unit": "",   "type": "string"  },
+      "Rx: A - Weight By MU":   { "expected": "True",       "warn": null, "fail": null, "unit": "",   "type": "string"  }
+    }
+  },
+
+  "imrtChecks": {
+    "Prostate_VMAT": {
+      "IMRT: PTV_High - Weighting":          { "expected": "100",  "warn": 5.0,  "fail": 10.0, "unit": "", "type": "numeric" },
+      "IMRT: PTV_High - Is Manual":          { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "IMRT: PTV_High - Is Multi-Criterial": { "expected": "True",  "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "IMRT: Rectum - Weighting":            { "expected": "50",   "warn": 5.0,  "fail": 10.0, "unit": "", "type": "numeric" },
+      "IMRT: Rectum - Is Manual":            { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "IMRT: Rectum - Is Multi-Criterial":   { "expected": "True",  "warn": null, "fail": null, "unit": "", "type": "string"  }
+    },
+    "Prostate_SBRT": {
+      "IMRT: PTV_High - Weighting":          { "expected": "100",  "warn": 5.0,  "fail": 10.0, "unit": "", "type": "numeric" },
+      "IMRT: PTV_High - Is Manual":          { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string"  },
+      "IMRT: PTV_High - Is Multi-Criterial": { "expected": "True",  "warn": null, "fail": null, "unit": "", "type": "string"  }
+    }
+  },
+
+  "dvhChecks": {
+    "Prostate_VMAT": {
+      "DVH: PTV_High - Max Dose":  { "expected": "80.0",  "warn": 1.0, "fail": 3.0, "unit": "Gy", "type": "numeric" },
+      "DVH: Rectum - Max Dose":    { "expected": "78.0",  "warn": 1.0, "fail": 3.0, "unit": "Gy", "type": "numeric" },
+      "DVH: Bladder - Max Dose":   { "expected": "78.0",  "warn": 1.0, "fail": 3.0, "unit": "Gy", "type": "numeric" }
+    },
+    "Prostate_SBRT": {
+      "DVH: PTV_High - Max Dose":  { "expected": "38.0",  "warn": 0.5, "fail": 1.0, "unit": "Gy", "type": "numeric" },
+      "DVH: Rectum - Max Dose":    { "expected": "36.25", "warn": 0.5, "fail": 1.0, "unit": "Gy", "type": "numeric" },
+      "DVH: Bladder - Max Dose":   { "expected": "36.25", "warn": 0.5, "fail": 1.0, "unit": "Gy", "type": "numeric" }
+    }
+  },
+
+  "criteriaChecks": {
+    "Prostate_VMAT": {
+      "Criteria: PTV_High - V95 Goal":    { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Criteria: Rectum - V70Gy Goal":    { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Criteria: Bladder - V65Gy Goal":   { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" }
+    },
+    "Prostate_SBRT": {
+      "Criteria: PTV_High - V95 Goal":    { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Criteria: Rectum - V36Gy Goal":    { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Criteria: Bladder - V36Gy Goal":   { "expected": "Pass", "warn": null, "fail": null, "unit": "", "type": "string" }
+    }
+  },
+
+  "structureChecks": {
+    "Prostate_VMAT": {
+      "Structure: PTV_High - Type":        { "expected": "PTV",   "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - FillED":      { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - ForceED":     { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - RelativeED":  { "expected": "1.0",   "warn": 0.01, "fail": 0.05, "unit": "", "type": "numeric" },
+      "Structure: Rectum - Type":          { "expected": "OAR",   "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: Rectum - FillED":        { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: Rectum - ForceED":       { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: Rectum - RelativeED":    { "expected": "1.0",   "warn": 0.01, "fail": 0.05, "unit": "", "type": "numeric" }
+    },
+    "Prostate_SBRT": {
+      "Structure: PTV_High - Type":        { "expected": "PTV",   "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - FillED":      { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - ForceED":     { "expected": "False", "warn": null, "fail": null, "unit": "", "type": "string" },
+      "Structure: PTV_High - RelativeED":  { "expected": "1.0",   "warn": 0.01, "fail": 0.05, "unit": "", "type": "numeric" }
+    }
+  },
+
+  "beamChecks": {
+    "Prostate_VMAT": {
+      "General - Energy":          { "expected": "6 MV",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - Modality":        { "expected": "VMAT",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - MU":              { "expected": "542.0", "warn": 5.0,  "fail": 15.0, "unit": "MU",    "type": "numeric" },
+      "General - Algorithm":       { "expected": "XVMC",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - Delivery":        { "expected": "Arc",   "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Geometry - Collimator":     { "expected": "45.0",  "warn": 1.0,  "fail": 3.0,  "unit": "°",     "type": "numeric" },
+      "Geometry - Gantry Start":   { "expected": "181.0", "warn": 1.0,  "fail": 3.0,  "unit": "°",     "type": "numeric" },
+      "Geometry - Field Type":     { "expected": "ARC",   "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Geometry - Couch":          { "expected": "0.0",   "warn": 0.5,  "fail": 1.0,  "unit": "°",     "type": "numeric" },
+      "Treatment Aids - Bolus":    { "expected": "None",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Treatment Aids - Couch":    { "expected": "Exact", "warn": null, "fail": null, "unit": "",      "type": "string"  }
+    },
+    "Prostate_SBRT": {
+      "General - Energy":          { "expected": "6FFF",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - Modality":        { "expected": "SBRT",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - MU":              { "expected": "320.0", "warn": 5.0,  "fail": 15.0, "unit": "MU",    "type": "numeric" },
+      "General - Algorithm":       { "expected": "XVMC",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "General - Delivery":        { "expected": "Arc",   "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Geometry - Collimator":     { "expected": "45.0",  "warn": 1.0,  "fail": 3.0,  "unit": "°",     "type": "numeric" },
+      "Geometry - Gantry Start":   { "expected": "181.0", "warn": 1.0,  "fail": 3.0,  "unit": "°",     "type": "numeric" },
+      "Geometry - Field Type":     { "expected": "ARC",   "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Geometry - Couch":          { "expected": "0.0",   "warn": 0.5,  "fail": 1.0,  "unit": "°",     "type": "numeric" },
+      "Treatment Aids - Bolus":    { "expected": "None",  "warn": null, "fail": null, "unit": "",      "type": "string"  },
+      "Treatment Aids - Couch":    { "expected": "Exact", "warn": null, "fail": null, "unit": "",      "type": "string"  }
+    }
+  }
+}
